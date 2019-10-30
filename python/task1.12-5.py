@@ -1,11 +1,20 @@
-a, b, c = int(input()), int(input()), int(input())
-if a >= b and a >= c:
-	print(a)
-elif b >= a and b >= c:
+a = int(input())
+M, m, mid = a, a, a
+
+b = int(input())
+if b > a:
+	M = b
 else:
-	print(c)
-if a <= b and a <= c:
-	print(a)
-elif b <= a and b <= c:
+	m, mid= b, b
+
+c = int(input())
+if c > M:
+	M = c
+elif c < m:
+	m = c
 else:
-	print(c)
+	mid = c
+
+print(M)
+print(m)
+print(mid)
