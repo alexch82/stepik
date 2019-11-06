@@ -12,11 +12,13 @@
 using namespace std;
 
 int main() {
-	int p, x, y;
-	double z;
-	cin >> p >> x >> y;
-	cout << setprecision(6);
-	z = (x * 100 + y) + ((x * 100 + y) * p) / 100.0;
-	cout << trunc(z / 100.0) << " " << int(trunc(z)) % 100;
+	int x, n = 0;
+	double avr = 0.0, sigma = 0.0;
+	while ((cin >> x) && (x != 0)) {
+		avr += x;
+		n++;
+	}
+	cout << setprecision(12);
+	cout << avr / n;	
 	return 0;
 }
