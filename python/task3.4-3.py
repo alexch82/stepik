@@ -1,22 +1,16 @@
 fin = open('input.txt', 'r')
 fout = open('output.txt', 'w')
 
-d = {}
-for t in fin:
-	t = t.strip()
-	t = t.lower()
-	w = t.split()
-	for k in w:
-		d[k] = d.get(k, 0) + 1
-
-m = max(d.values())
-l = []
-for k, v in d.items():
-	if v == m:
-		l.append(k)
-
-l.sort()
-print(l[0], m, sep = ' ', end = '\n', file = fout)
-
+n = 0;
+avr = [0, 0, 0]
+for s in fin:
+	p = s.split(';')
+	n += 1
+	print((int(p[1]) + int(p[2]) + int(p[3])) / 3, file = fout)
+	for i in range(3):
+		avr[i] += int(p[i + 1])
+for a in avr:
+	print(a / n, end = ' ', file = fout)
+	
 fin.close()
 fout.close()
