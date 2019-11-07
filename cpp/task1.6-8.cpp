@@ -12,14 +12,15 @@
 using namespace std;
 
 int main() {
-	int x, n = 0;
-	double s = 0.0, s2 = 0.0;
-	while ((cin >> x) && (x != 0)) {
-		s += x;
-		s2 += x*x;
-		n++;
+	int n;
+	double x, a = 0, p = 0;
+	cin >> n >> x >> a;
+	p = a;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		p = p*x + a;
 	}
 	cout << setprecision(12);
-	cout << pow((s2 - pow(s, 2) / n) / (n - 1),.5);	
+	cout << p;	
 	return 0;
 }

@@ -12,14 +12,10 @@
 using namespace std;
 
 int main() {
-	int x, n = 0;
-	double s = 0.0, s2 = 0.0;
-	while ((cin >> x) && (x != 0)) {
-		s += x;
-		s2 += x*x;
-		n++;
-	}
+	double a, b, c, d, e, f;
+	cin >> a >> b >> c >> d >> e >> f;
 	cout << setprecision(12);
-	cout << pow((s2 - pow(s, 2) / n) / (n - 1),.5);	
+	double D = a * d - c * b, dx = e * d - b * f, dy = a * f - c * e;
+	cout << dx / D << " " << dy / D;
 	return 0;
 }

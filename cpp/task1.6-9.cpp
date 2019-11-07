@@ -12,14 +12,18 @@
 using namespace std;
 
 int main() {
-	int x, n = 0;
-	double s = 0.0, s2 = 0.0;
-	while ((cin >> x) && (x != 0)) {
-		s += x;
-		s2 += x*x;
-		n++;
-	}
+	double a, b, c, x1, x2;
+	cin >> a >> b >> c;
+	double D = b * b - 4 * a * c;
 	cout << setprecision(12);
-	cout << pow((s2 - pow(s, 2) / n) / (n - 1),.5);	
+	if (D > 0) {
+		x1 = (-b + pow(D, .5)) / (2 * a);
+		x2 = (-b - pow(D, .5)) / (2 * a);
+		if (x1 < x2)
+			cout << x1 << " " << x2;
+		else
+			cout << x2 << " " << x1;
+	} else if (D == 0)
+		cout << -b / (2 * a);
 	return 0;
 }
