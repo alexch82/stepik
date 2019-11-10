@@ -7,35 +7,27 @@
  * 
  */
 #include <iostream>
-#include <vector>
 
 int main()
 {
-	int n;
-	std::cin >> n;
-	std::vector <int> a(n);	
-	for (int i = 0; i < n; i++)
-		std::cin >> a[i];
-
-	long unsigned int i = 0;
-	while (i < a.size())
-	{
-		bool d = false;
-		long unsigned int j = i + 1;
-		while (j < a.size())
+	int q[8][2] = {};
+	for (int i = 0; i < 8; i++)
+		std::cin >> q[i][0] >> q[i][1];
+	bool b = false;
+	for (int i = 0; i < 7; i++)
+		for (int j = i + 1; j < 8; j++)
 		{
-			if (a[i] == a[j])
+			if (q[i][0] == q[j][0] ||
+				q[i][1] == q[j][1] ||
+				(abs(q[i][0] - q[j][0]) == abs(q[i][1] - q[j][1])))
 			{
-				a.erase(a.begin() + j);
-				d = true;
+				b = true;
+				break;
 			}
-			else j++;
 		}
-		if (d) a.erase(a.begin() + i);
-		else i++;
-	}
-
-	for (auto x : a)
-		std::cout << x << " ";
+	if (b)
+		std::cout << "YES";
+	else
+		std::cout << "NO";
 	return 0;
 }
