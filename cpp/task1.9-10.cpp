@@ -7,20 +7,20 @@
  * 
  */
 #include <iostream>
-#include <cmath>
 
-int IsPrime(int n) {
-	for (int i = 2; i <= round(sqrt(n)); i++)
-		if (n % i == 0) return false;
-	return true;
+double MyPower(double x, unsigned int n) {
+	if (n == 0) return 1;
+	if (n == 1) return x;
+	if (n % 2 == 0)
+		return MyPower(x * x, n / 2);
+	else
+		return x * MyPower(abs(x), n - 1);
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    if (IsPrime(n))
-		std::cout << "YES";
-	else
-		std::cout << "NO";
+    double a;
+    unsigned int n;
+    std::cin >> a >> n;
+    std::cout << MyPower(a, n);
   return 0;
 }
