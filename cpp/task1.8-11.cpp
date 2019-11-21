@@ -7,22 +7,23 @@
  * 
  */
 #include <iostream>
+#include <iomanip>
 
 int main()
 {
 	int a[100][100] = {};
-	int n;
-	std::cin >> n;
-	for (int i = 0; i < n; i++)
-		for (int j = 0; j < n; j++)
-			std::cin >> a[i][j];
-	int k;
-	std::cin >> k;
-	if (k >= 0)
-		for (int i = k, j = 0; i < n; i++, j++)
-			std::cout << a[i][j] << " ";
-	else
-		for (int i = 0, j = -k; j < n; i++, j++)
-			std::cout << a[i][j] << " ";
+	int n, m;
+	std::cin >> n >> m;
+	if (n >= m) {
+		for (int i = 0; i < n; i++)
+			for (int j = 0; j < m; j++) {
+				std::cout << std::setw(4);
+			}
+	} else {
+		for (int i = 0; i < n; i++)
+			for (int j = 0; j < m; j++) {
+				std::cout << std::setw(4);
+			}
+	}
 	return 0;
 }
