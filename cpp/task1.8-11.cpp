@@ -14,12 +14,22 @@ int main()
 	int a[100][100] = {};
 	int n, m;
 	std::cin >> n >> m;
-	int i = 0, j = 0, k = 1, di = 0, dj = -1;
+	int i = 0, j = 0, k = 1;
 	while (k <= n * m) {
 		a[i][j] = k;
-		if (i)
-		i += di;
-		j += dj;
+		if (n >= m) {
+			if (j == 0) {
+				j = i + 1;
+				i = 0;
+			}
+		} else {
+			if (i + 1 >= n) {
+				j = j + i + 1;
+				i = 0;
+			}
+		}
+		i++;
+		j--;
 		k++;
 	}
 	for (i = 0; i < n; i++) {
