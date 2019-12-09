@@ -16,22 +16,34 @@ int main()
 	std::cin >> n >> m;
 	int i = 0, j = 0, k = 1;
 	while (k <= n * m) {
-		a[i][j] = k;
+		a[i][j] = k;		
 		if (n >= m) {
-			if (j == 0) {
+			if (j == 0 && i < n) {
 				j = i + 1;
 				i = 0;
+			} else if (i + 1 >= m) {
+				i = m - 1 + j;
+				j = m - 1;
+			} else {
+				i++;
+				j--;
 			}
 		} else {
-			if (i + 1 >= n) {
+			if ((i + 1 >= n || j == 0) && (j + i < m)) {
 				j = j + i + 1;
 				i = 0;
+			} else if ((j >= n) && (i == n - 1)) {
+				i = n - 1 - (m - 1 - j);
+				j = m - 1;
+				std::cout << i << " " << j << "; ";
+			} else {
+				i++;
+				j--;
 			}
 		}
-		i++;
-		j--;
 		k++;
 	}
+	std::cout << std::endl;
 	for (i = 0; i < n; i++) {
 		for (j = 0; j < m; j++) {
 			std::cout << std::setw(4);
