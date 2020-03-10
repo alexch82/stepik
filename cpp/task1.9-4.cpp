@@ -7,9 +7,10 @@
  * 
  */
 #include <iostream>
+#include <cmath>
 
 bool IsPointInSquare (double x, double y) {
-	return (-1 - y <= x && x <= 1 - y && y - 1 <= x && y + 1) && (-x - 1 <= y && -1 + x <= y && y <= 1 - x && y <= 1 + x);
+	return fabs(y) + fabs(x) <= 1;
 }
 
 int main () {
